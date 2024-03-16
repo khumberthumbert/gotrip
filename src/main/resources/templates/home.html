@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+<div class="home-container">
+    <h1>Welcome to Our Travel Diary</h1>
+    <p>Explore and share your travel experiences.</p>
+    <div class="navigation-buttons">
+        <a th:href="@{/users/new}" class="button">Sign Up</a>
+        <a th:href="@{/login}" class="button">Login</a>
+    </div>
+</div>
+</body>
+</html>

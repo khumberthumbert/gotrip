@@ -21,6 +21,8 @@ public class UsersRepository {
     }
 
     //유저 조회
+    //em.find 메서드를 사용할 때, 두번째 매개변수는 무조건 해당 엔티티의 기본 키 값이어한다.
+    //기본키가 아닌 다른 속성으로 엔티티를 조회하고 싶으면 JPQL 이용해야 함.
     public Users findOne(Long id) {
         return em.find(Users.class, id);
     }

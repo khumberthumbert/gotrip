@@ -23,9 +23,19 @@ public class LoginController {
 
     private final LoginService loginService;
 
+    //loginForm에서 객체를 사용하기 위해 @ModelAttribute에 LoginForm 객체를 넣었음.
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm form) {
         return "login/loginForm";
+    }
+
+    @PostMapping("/logout")
+    public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        return "redirect:/";
     }
 
     @PostMapping("/login")
@@ -50,14 +60,5 @@ public class LoginController {
         log.info("redirect 확인용 {}", redirectURL);
         //로그인 성공
         return "redirect:" + redirectURL;
-    }
-
-    @PostMapping("/logout")
-    public String logout(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            session.invalidate();
-        }
-        return "redirect:/";
     }
 }

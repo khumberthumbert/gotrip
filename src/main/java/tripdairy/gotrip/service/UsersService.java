@@ -9,6 +9,7 @@ import tripdairy.gotrip.domain.Users;
 import tripdairy.gotrip.repository.UsersRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional(readOnly = true)
@@ -28,8 +29,8 @@ public class UsersService {
     }
 
     private void validateDuplicateUsers(Users users) {
-        List<Users> findUsers = usersRepository.findByName(users.getName());
-        if (!findUsers.isEmpty()) {
+        Optional<Users> findUsers = usersRepository.findByEmail(users.getEmail());
+        if (findUsers.isPresent()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
     }

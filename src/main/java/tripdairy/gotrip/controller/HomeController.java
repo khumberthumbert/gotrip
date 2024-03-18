@@ -13,7 +13,7 @@ import tripdairy.gotrip.domain.Users;
 public class HomeController {
 
     @RequestMapping("/")
-    public String hom() {
+    public String home() {
         log.info("home controller");
         return "home";
     }

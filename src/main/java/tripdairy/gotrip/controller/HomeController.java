@@ -17,6 +17,7 @@ public class HomeController {
         log.info("home controller");
         return "home";
     }
+    //git 올리는 용
 
 
 }

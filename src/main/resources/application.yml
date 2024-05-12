@@ -1,4 +1,10 @@
 spring:
+  security:
+    user:
+      name: user
+      password: 1111
+      roles: USER
+
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres

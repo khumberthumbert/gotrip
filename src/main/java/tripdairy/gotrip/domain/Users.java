@@ -20,9 +20,9 @@ public class Users {
     private Long id;
 
     @Column(name = "username")
-    private String name;
-    private String email;
+    private String username;
     private String password;
+    private int age;
 
     @OneToMany(mappedBy = "users")
     List<TravelDiaries> travelDiaries = new ArrayList<>();

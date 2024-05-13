@@ -32,9 +32,9 @@ public class UserController {
             return "users/createUserForm";
         }
         Users users = new Users();
-        users.setName(form.getName());
+        users.setUsername(form.getUsername());
         users.setPassword(form.getPassword());
-        users.setEmail(form.getEmail());
+        users.setAge(form.getAge());
 
         usersService.join(users);
         return "redirect:/";

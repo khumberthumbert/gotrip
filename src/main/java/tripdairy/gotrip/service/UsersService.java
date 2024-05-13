@@ -23,17 +23,17 @@ public class UsersService {
      */
     @Transactional
     public Long join(Users users) {
-        validateDuplicateUsers(users); //중복 회원 검증
+        //validateDuplicateUsers(users); //중복 회원 검증
         usersRepository.save(users);
         return users.getId();
     }
 
-    private void validateDuplicateUsers(Users users) {
+    /*private void validateDuplicateUsers(Users users) {
         Optional<Users> findUsers = usersRepository.findByEmail(users.getEmail());
         if (findUsers.isPresent()) {
             throw new IllegalStateException("이미 존재하는 회원입니다.");
         }
-    }
+    }*/
 
     //유저 전체 조회
     public List<Users> findUsers() {
